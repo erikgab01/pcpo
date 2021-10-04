@@ -8,9 +8,9 @@
   {% for day in object_list %}
 
     <hr>
-    <h3>{{ day.prop1 }}</h3>
-    <h3>{{ day.prop2 }}</h3>
-    <h4>{{ day.prop3 }}</h4>
+    <h3>{{ day.temp }}</h3>
+    <h3>{{ day.temp_feels_like }}</h3>
+    <h4>{{ day.humidity }}</h4>
 
   {% empty %} <!-- if list is empty -->
     <h2>Select days</h2>
