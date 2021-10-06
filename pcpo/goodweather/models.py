@@ -16,7 +16,7 @@ class GoodDay(models.Model):
 	pop = models.IntegerField(verbose_name='pop', null=True, blank=True)
 	
 	def __str__(self):
-		return self.weather
+		return self.date
 
 
 	class Meta:

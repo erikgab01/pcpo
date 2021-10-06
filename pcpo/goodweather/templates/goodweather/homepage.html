@@ -8,12 +8,23 @@
   {% for day in object_list %}
 
     <hr>
-    <h3>{{ day.temp }}</h3>
-    <h3>{{ day.temp_feels_like }}</h3>
+    <h3>{{ day.date }}</h3>
+    <h3>{{ day.weather }}</h3>
+    <h4>{{ day.temp_min }}</h4>
+    <h4>{{ day.temp_max }}</h4>
+    <h4>{{ day.feels_like_day }}</h4>
+    <h4>{{ day.pressure }}</h4>
     <h4>{{ day.humidity }}</h4>
+    <h4>{{ day.dew_point }}</h4>
+    <h4>{{ day.wind_speed }}</h4>
+    <h5>{{ day.uvi }}</h5>
+    <h5>{{ day.pop }}</h5>
 
   {% empty %} <!-- if list is empty -->
-    <h2>Select days</h2>
+
+    <h2>No days :( </h2>
+
   {% endfor %}
+
 
 {% endblock %}
