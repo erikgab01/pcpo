@@ -37,7 +37,7 @@ class Command(BaseCommand):
             print("Exception: ", e)
             pass
 
-        return data
+        return data['daily']
 
     def optimize_data(self, data):
         days = dict(zip(range(8), data))
