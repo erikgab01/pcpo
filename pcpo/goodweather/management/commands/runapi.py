@@ -45,7 +45,7 @@ class Command(BaseCommand):
             # Current day
             current_day = days[day]
             # Optimize the dictionary view
-            # current_day['temp_min'] = current_day['temp']['min']
+            current_day['temp_min'] = current_day['temp']['min']
             current_day['temp_max'] = current_day['temp']['max']
             current_day['feels_like_day'] = current_day['feels_like']['day']
             current_day['weather_main'] = current_day['weather'][0]['main']
@@ -83,7 +83,7 @@ class Command(BaseCommand):
             good_day = GoodDay()
             good_day.date = day_time
             good_day.temp_min = day['temp_min']
-            good_day.temp_min = day['temp_max']
+            good_day.temp_max = day['temp_max']
             good_day.feels_like_day = day['feels_like_day']
             good_day.pressure = day['pressure']
             good_day.humidity = day['humidity']

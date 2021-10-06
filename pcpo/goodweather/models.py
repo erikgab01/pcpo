@@ -5,8 +5,8 @@ class GoodDay(models.Model):
 	date = models.CharField(max_length=40, verbose_name='date', null=True, blank=True)
 	weather = models.CharField(max_length=20, verbose_name='weather', null=True, blank=True)
 
-	temp_min = models.FloatField(verbose_name='temp_min')
-	temp_max = models.FloatField(verbose_name='temp_max')
+	temp_min = models.FloatField(verbose_name='temp_min', null=True, blank=True)
+	temp_max = models.FloatField(verbose_name='temp_max', null=True, blank=True)
 	feels_like_day = models.FloatField(verbose_name='feels_like_day', null=True, blank=True)
 	pressure = models.IntegerField(verbose_name='pressure', null=True, blank=True)
 	humidity = models.IntegerField(verbose_name='humidity', null=True, blank=True)
