@@ -2,7 +2,7 @@ a, a:hover, a:active, a:visited, a:focus {
 	text-decoration:none !important;
 }
 .body {
-	background-color: rgba(213, 255, 241, 0.822);
+	background-color: rgba(213, 255, 241, 0.822); 
 }
 .header {
 	display: flex;
@@ -28,4 +28,9 @@ a, a:hover, a:active, a:visited, a:focus {
 	margin-top: 2% !important;
 	margin-left: auto !important;
 	margin-bottom: 2% !important;
+}
+
+caption {
+  caption-side: top;
+  font-size: 24px;
 }
