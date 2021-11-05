@@ -26,15 +26,31 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+
     'crispy_forms',
     'rest_framework',
     'corsheaders',
     'goodweather',
+
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.vk',
+    'allauth.socialaccount.providers.github',
+    'allauth.socialaccount.providers.google',
 ]
+
+# To use allauth
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -47,7 +63,7 @@ ROOT_URLCONF = 'pcpo.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'goodweather/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -135,3 +151,52 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, 'goodweather/static'),)
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Auth
+
+# Login
+LOGIN_REDIRECT_URL = '/home/'
+LOGIN_URL = 'accounts/login/'
+
+# Logout
+LOGOUT_URL = 'accounts/logout/'
+LOGOUT_REDIRECT_URL = 'accounts/login/'
+
+ACCOUNT_EMAIL_REQUIRED = True
+SITE_ID = 1
+# Should be "mandatory", "optional" or "none"
+ACCOUNT_EMAIL_VERIFICATION = "none"
+
+
+# Config for django-allauth
+"""
+SOCIALACCOUNT_PROVIDERS = {
+    "vk": {
+        "APP": {
+            "client_id": int(os.environ.get('VK_OAUTH2_KEY')),
+            "secret": os.environ.get('VK_OAUTH2_SECRET'),
+        },
+        "SCOPE": {
+            "email",
+        },
+    },
+    "github": {
+        "APP": {
+            "client_id": os.environ.get('GITHUB_KEY'),
+            "secret": os.environ.get('GITHUB_SECRET'),
+        },
+        "SCOPE": {
+            "user",
+        },
+    },
+    "google": {
+        "APP": {
+            "client_id": os.environ.get('GOOGLE_KEY'),
+            "secret": os.environ.get('GOOGLE_SECRET'),
+        },
+        "SCOPE": {
+            "email",
+        },
+    },
+}
+"""
