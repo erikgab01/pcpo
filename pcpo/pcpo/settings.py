@@ -36,9 +36,9 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    'allauth.socialaccount.providers.vk',
-    'allauth.socialaccount.providers.github',
-    'allauth.socialaccount.providers.google',
+    #'allauth.socialaccount.providers.vk',
+    #'allauth.socialaccount.providers.github',
+    #'allauth.socialaccount.providers.google',
 ]
 
 # To use allauth
@@ -152,6 +152,53 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, 'goodweather/static'),)
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# Logging
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': True,   # Отключаем все средства диагностики по умолчанию
+    # Форматировщик - задает формат, в котором представляется сообщение, отправленное подсистемой диагностики
+    'formatters': {
+        # Форматировщик с именем simple
+        'simple': {
+            # Строка для формирования сообщения (в скобках атрибуты класса LogRecord из модуля logging)
+            'format': '[%(asctime)s] %(levelname)s: %(message)s',
+            # Строка для формирования даты
+            'datefmt': '%Y.%m.%d %H.%M.%S'
+        },
+    },
+    # Фильтры
+    'filters': {
+        # Выводит сообщения только в эксплуатационном режиме
+        'require_debug_false': {
+            '()': 'django.utils.log.RequireDebugFalse'
+        },
+        # Выводит сообщения только в отладочном режиме
+        'require_debug_true': {
+            '()': 'django.utils.log.RequireDebugTrue'
+        },
+    },
+    # Обработчики
+    'handlers': {
+        # Будет сохранять в файл сообщения любого уровня, посредством
+        # форматировщика simple. При превышении файлом размера в 1Мб будет создан
+        # новый файл. Всего будет храниться 10 файлов с логами (одновременно)
+        'file': {
+            'class': 'logging.handlers.RotatingFileHandler',
+            'filename': os.path.join(BASE_DIR, 'logs.log'),
+            'maxBytes': 1048576,
+            'backupCount': 2,
+            'formatter': 'simple',
+        },
+    },
+    # Регистраторы
+    'loggers': {
+        'django': {
+            'handlers': ['file'],
+        },
+    }
+}
+
 # Auth
 
 # Login
@@ -162,7 +209,7 @@ LOGIN_URL = 'accounts/login/'
 LOGOUT_URL = 'accounts/logout/'
 LOGOUT_REDIRECT_URL = 'accounts/login/'
 
-ACCOUNT_EMAIL_REQUIRED = True
+#ACCOUNT_EMAIL_REQUIRED = True
 SITE_ID = 1
 # Should be "mandatory", "optional" or "none"
 ACCOUNT_EMAIL_VERIFICATION = "none"

@@ -14,7 +14,7 @@ class GoodDay(models.Model):
 	wind_speed = models.FloatField(verbose_name='wind_speed', null=True, blank=True)
 	uvi = models.FloatField(verbose_name='uvi', null=True, blank=True)
 	pop = models.IntegerField(verbose_name='pop', null=True, blank=True)
-	
+
 	def __str__(self):
 		return self.date
 
