@@ -15,33 +15,37 @@
   
     <title>Good Weather | {% block title %}{% endblock title %}</title>
 
-    <!-- User block -->
-    <div class="auth">
-      {% if user.is_authenticated %}
-        <h4><span>Hello, {{ user.username }}! | </span><a href="{% url 'account_logout' %}">Log out</a></h4>
-      {% else %}
-        <h4>
-          <a href="{% url 'account_login' %}">Log in</a> | <a href="{% url 'account_signup' %}">Sign up</a>
-        </h4>
-      {% endif %}
-    </div>
+
 
   </head>
 
   <body class="body">
-  	<header class="header">
-			<a class="logo" href="{% url 'home' %}">Good Weather</a>	
-		</header>
+    <div class="wrapper">
+      <header class="header">
+        <a class="logo" href="{% url 'home' %}">Good Weather</a>
+        <!-- User block -->
+        <div class="auth">
+          {% if user.is_authenticated %}
+            <h4><span>Hello, {{ user.username }}! | </span><a href="{% url 'account_logout' %}">Log out</a></h4>
+          {% else %}
+            <h4>
+              <a href="{% url 'account_login' %}">Log in</a> | <a href="{% url 'account_signup' %}">Sign up</a>
+            </h4>
+          {% endif %}
+        </div>	
+      </header>
 
-		<div class="page">
-    	<div class="container">
-    	  {% block content %}
-    	  {% endblock content %}
-    	</div>
-		</div>
+      <div class="page">
+        <div class="container">
+          {% block content %}
+          {% endblock content %}
+        </div>
+      </div>
 
-		<footer class="footer">
-
-		</footer>
+      <footer class="footer">
+        <div>Made by top progers (Evgeniy baka)</div>
+        <div>&copy; All rights reserved</div>
+      </footer>
+    </div>
   </body>
 </html>

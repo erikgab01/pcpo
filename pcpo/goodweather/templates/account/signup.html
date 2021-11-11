@@ -3,17 +3,18 @@
 {% block title %}Signup{% endblock %}
 
 {% block content %}
-  <h1>Sign Up</h1>
+  <div class="sign-form">
+    <h1 class="text-center">Sign Up</h1>
 
-  <p>Already have an account? Then please <a href="{{ login_url }}">sign in</a>.</p>
+    <p>Already have an account? Then please <a href="{{ login_url }}">sign in</a>.</p>
 
-  <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
-    {% csrf_token %}
-    {{ form.as_p }}
-    {% if redirect_field_value %}
-      <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-    {% endif %}
-    <button type="submit">Sign Up</button>
-  </form>
-
+    <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
+      {% csrf_token %}
+      {{ form.as_p }}
+      {% if redirect_field_value %}
+        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+      {% endif %}
+      <button class="signup-button" type="submit">Sign Up</button>
+    </form>
+  </div>
 {% endblock %}
