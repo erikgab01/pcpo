@@ -68,10 +68,10 @@ class Command(BaseCommand):
         return days
 
     def check_is_good(self, day):
-        return (day['temp_min'] >= -3) and (day['temp_max'] <= 15) \
-               and (day['feels_like_day'] >= -3) and (day['feels_like_day'] <= 12) \
+        return (day['temp_min'] >= -20) and (day['temp_max'] <= 5) \
+               and (day['feels_like_day'] >= -20) and (day['feels_like_day'] <= 5) \
                and (day['pressure'] >= 980) and (day['pressure'] <= 1036) \
-               and (day['humidity'] >= 40) and (day['humidity'] <= 60) \
+               and (day['humidity'] >= 40) and (day['humidity'] <= 90) \
                and (day['dew_point'] <= 55) and (day['wind_speed'] <= 14) \
                and (day['uvi'] <= 2) and (day['pop'] <= 50) and 'rain' not in day
 
