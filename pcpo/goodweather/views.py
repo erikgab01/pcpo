@@ -1,3 +1,4 @@
+import datetime
 from django.shortcuts import render
 from django.views.generic import ListView
 from django.contrib.auth.views import LoginView, LogoutView
@@ -5,14 +6,19 @@ from django.contrib.auth.views import LoginView, LogoutView
 from goodweather.models import GoodDay
 
 
-class HomePageListView(ListView):
-	model = GoodDay
-	template_name = 'goodweather/homepage.html'
+class Day7ListView(ListView):
+    model = GoodDay
+    template_name = 'goodweather/7_day.html'
+
+    def get_queryset(self):
+        queryset = super().get_queryset().filter(date_millisecs__gte=datetime.datetime.now().timestamp()).order_by('date_millisecs')
+        return queryset[:self.kwargs['day']]
 
 
-class CustomLoginView(LoginView):
-    template_name = "goodweather/login.html"
+class HistoryListView(ListView):
+    model = GoodDay
+    template_name = 'goodweather/history.html'
 
-
-class CustomLogoutView(LogoutView):
-    next_page = '/login/'
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        return queryset

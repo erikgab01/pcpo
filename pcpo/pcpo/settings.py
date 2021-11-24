@@ -27,18 +27,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
-
     'crispy_forms',
     'rest_framework',
     'corsheaders',
     'goodweather',
-
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    #'allauth.socialaccount.providers.vk',
-    #'allauth.socialaccount.providers.github',
-    #'allauth.socialaccount.providers.google',
 ]
 
 # To use allauth
@@ -90,20 +85,6 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
-# Postgres DB
-"""
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'HOST': 'localhost',
-        'NAME': 'pcpodb',
-        'USER': 'pcpouser',
-        'PASSWORD': 'pcpopassword',
-        'PORT': '5432',
-    }
-}
-"""
 
 
 # Password validation
@@ -202,7 +183,7 @@ LOGGING = {
 # Auth
 
 # Login
-LOGIN_REDIRECT_URL = '/home/'
+LOGIN_REDIRECT_URL = '/home/7/'
 LOGIN_URL = 'accounts/login/'
 
 # Logout
@@ -213,37 +194,3 @@ LOGOUT_REDIRECT_URL = 'accounts/login/'
 SITE_ID = 1
 # Should be "mandatory", "optional" or "none"
 ACCOUNT_EMAIL_VERIFICATION = "none"
-
-
-# Config for django-allauth
-"""
-SOCIALACCOUNT_PROVIDERS = {
-    "vk": {
-        "APP": {
-            "client_id": int(os.environ.get('VK_OAUTH2_KEY')),
-            "secret": os.environ.get('VK_OAUTH2_SECRET'),
-        },
-        "SCOPE": {
-            "email",
-        },
-    },
-    "github": {
-        "APP": {
-            "client_id": os.environ.get('GITHUB_KEY'),
-            "secret": os.environ.get('GITHUB_SECRET'),
-        },
-        "SCOPE": {
-            "user",
-        },
-    },
-    "google": {
-        "APP": {
-            "client_id": os.environ.get('GOOGLE_KEY'),
-            "secret": os.environ.get('GOOGLE_SECRET'),
-        },
-        "SCOPE": {
-            "email",
-        },
-    },
-}
-"""

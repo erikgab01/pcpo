@@ -9,7 +9,7 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         data = self.get_data()
         days = self.optimize_data(data)
-
+        
         for day_num in days:
             # If the day passes according to the criteria, then it is saved in the database
             if self.check_is_good(days[day_num]):
@@ -69,11 +69,11 @@ class Command(BaseCommand):
 
     def check_is_good(self, day):
         return (day['temp_min'] >= -20) and (day['temp_max'] <= 5) \
-               and (day['feels_like_day'] >= -20) and (day['feels_like_day'] <= 5) \
-               and (day['pressure'] >= 980) and (day['pressure'] <= 1036) \
-               and (day['humidity'] >= 40) and (day['humidity'] <= 90) \
-               and (day['dew_point'] <= 55) and (day['wind_speed'] <= 14) \
-               and (day['uvi'] <= 2) and (day['pop'] <= 50) and 'rain' not in day
+                and (day['feels_like_day'] >= -20) and (day['feels_like_day'] <= 5) \
+                and (day['pressure'] >= 980) and (day['pressure'] <= 1036) \
+                and (day['humidity'] >= 40) and (day['humidity'] <= 90) \
+                and (day['dew_point'] <= 55) and (day['wind_speed'] <= 14) \
+                and (day['uvi'] <= 2) and (day['pop'] <= 50) and 'rain' not in day
 
     def save_day(self, day_num, day):
         # Saving data into model objects
@@ -82,6 +82,7 @@ class Command(BaseCommand):
         if not GoodDay.objects.filter(date=day_time).exists():
             good_day = GoodDay()
             good_day.date = day_time
+            good_day.date_millisecs = datetime.strptime(day_time, '%B %d, %Y').timestamp()
             good_day.temp_min = day['temp_min']
             good_day.temp_max = day['temp_max']
             good_day.feels_like_day = day['feels_like_day']

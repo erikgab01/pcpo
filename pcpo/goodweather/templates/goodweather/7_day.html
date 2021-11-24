@@ -21,25 +21,27 @@
     </tr>
 
     {% for day in object_list %}
-    <tr>
-      <td>{{ day.date }}</td>
-      <td>{{ day.weather }}</td>
-      <td>{{ day.temp_min }} °C</td>
-      <td>{{ day.temp_max }} °C</td>
-      <td>{{ day.feels_like_day }} °C</td>
-      <td>{{ day.pressure }} гПа</td>
-      <td>{{ day.humidity }} %</td>
-      <td>{{ day.dew_point }}</td>
-      <td>{{ day.wind_speed }} м/с</td>
-      <td>{{ day.uvi }}</td>
-      <td>{{ day.pop }} %</td>
-    </tr>
+      <tr>
+        <td>{{ day.date }}</td>
+        <td>{{ day.weather }}</td>
+        <td>{{ day.temp_min }} °C</td>
+        <td>{{ day.temp_max }} °C</td>
+        <td>{{ day.feels_like_day }} °C</td>
+        <td>{{ day.pressure }} гПа</td>
+        <td>{{ day.humidity }} %</td>
+        <td>{{ day.dew_point }}</td>
+        <td>{{ day.wind_speed }} м/с</td>
+        <td>{{ day.uvi }}</td>
+        <td>{{ day.pop }} %</td>
+      </tr>
     {% empty %} <!-- if list is empty -->
-    
-    <td colspan="11" class="text-center">No days :( </td>
-    
+      <td colspan="11" class="text-center">No days :( </td>
     {% endfor %}
     
   </table>
+
+  <a href="{% url 'home' day=7 %}">All days</a>
+  <a href="{% url 'home' day=3 %}">3 days</a>
+  <a href="{% url 'home' day=1 %}">1 day</a>
 
 {% endblock %}

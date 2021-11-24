@@ -22,11 +22,12 @@
   <body class="body">
     <div class="wrapper">
       <header class="header">
-        <a class="logo" href="{% url 'home' %}">Good Weather</a>
+        <a class="logo" href="{% url 'home' day=7 %}">Good Weather</a>
         <!-- User block -->
         <div class="auth">
           {% if user.is_authenticated %}
             <h4><span>Hello, {{ user.username }}! | </span><a href="{% url 'account_logout' %}">Log out</a></h4>
+            <h4><a href="{% url 'history' %}">Browse history</a></h4>
           {% else %}
             <h4>
               <a href="{% url 'account_login' %}">Log in</a> | <a href="{% url 'account_signup' %}">Sign up</a>

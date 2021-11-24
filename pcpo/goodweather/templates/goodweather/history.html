@@ -1,0 +1,44 @@
+{% extends 'layout/basic.html' %}
+
+{% block title %}History{% endblock title %}
+
+{% block content %}
+  <h2>History</h2>
+
+  <table class="table table-bordered border-info">
+    <caption>Days</caption>
+    <tr>
+      <td>Дата</td>
+      <td>Погода</td>
+      <td>Мин температура</td>
+      <td>Макс температура</td>
+      <td>По ощущениям</td>
+      <td>Давление</td>
+      <td>Влажность</td>
+      <td>Точка росы</td>
+      <td>Ветер</td>
+      <td>УФ-индекс</td>
+      <td>Вероятность осадков</td>
+    </tr>
+
+    {% for day in object_list %}
+      <tr>
+        <td>{{ day.date }}</td>
+        <td>{{ day.weather }}</td>
+        <td>{{ day.temp_min }} °C</td>
+        <td>{{ day.temp_max }} °C</td>
+        <td>{{ day.feels_like_day }} °C</td>
+        <td>{{ day.pressure }} гПа</td>
+        <td>{{ day.humidity }} %</td>
+        <td>{{ day.dew_point }}</td>
+        <td>{{ day.wind_speed }} м/с</td>
+        <td>{{ day.uvi }}</td>
+        <td>{{ day.pop }} %</td>
+      </tr>
+    {% empty %} <!-- if list is empty -->
+      <td colspan="11" class="text-center">No days :( </td>
+    {% endfor %}
+
+  </table>
+
+{% endblock content %}

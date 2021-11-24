@@ -4,6 +4,7 @@ from django.db import models
 class GoodDay(models.Model):
 	date = models.CharField(max_length=40, verbose_name='date', null=True, blank=True)
 	weather = models.CharField(max_length=20, verbose_name='weather', null=True, blank=True)
+	date_millisecs = models.FloatField(verbose_name='date_millisecs', null=True, blank=True)
 
 	temp_min = models.FloatField(verbose_name='temp_min', null=True, blank=True)
 	temp_max = models.FloatField(verbose_name='temp_max', null=True, blank=True)

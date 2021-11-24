@@ -1,10 +1,11 @@
 from django.urls import path, include
+from django.shortcuts import redirect
+from django.views.generic.base import RedirectView
 
-from goodweather.views import HomePageListView, CustomLoginView, CustomLogoutView
+from goodweather.views import Day7ListView, HistoryListView
 
 urlpatterns = [
-    path('', HomePageListView.as_view()),
-    path('home/', HomePageListView.as_view(), name='home'),
-    path('login/', CustomLoginView.as_view(), name='login'),
-    path('logout/', CustomLogoutView.as_view(), name='logout')
+    path('', RedirectView.as_view(url='/home/7/', permanent=False)),
+    path('home/<int:day>/', Day7ListView.as_view(), name='home'),
+    path('history/', HistoryListView.as_view(), name='history'),
 ]
