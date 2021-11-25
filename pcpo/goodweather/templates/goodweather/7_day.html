@@ -40,8 +40,8 @@
     
   </table>
 
-  <a href="{% url 'home' day=7 %}">All days</a>
-  <a href="{% url 'home' day=3 %}">3 days</a>
-  <a href="{% url 'home' day=1 %}">1 day</a>
+  <a class="btn btn-outline-primary change-days" href="{% url 'home' day=7 %}">All days</a>
+  <a class="btn btn-outline-primary change-days" href="{% url 'home' day=3 %}">3 days</a>
+  <a class="btn btn-outline-primary change-days" href="{% url 'home' day=1 %}">1 day</a>
 
 {% endblock %}
