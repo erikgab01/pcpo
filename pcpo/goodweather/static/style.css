@@ -33,7 +33,7 @@ html, body {
 
 .footer {
  flex: 0 0 auto;
- padding: 5px 10px;
+ padding: 5px 2%;
 }
 
 .logo {
@@ -101,11 +101,16 @@ caption {
 }
 
 .auth {
-  margin-right: 30px;
+  margin-right: 2%;
+  min-width: 270px;
 }
 
 .log-in-link {
   margin-right: 15px;
+}
+
+.log-in-link, .sign-up-link {
+  float: right;
 }
 
 .authorised {
