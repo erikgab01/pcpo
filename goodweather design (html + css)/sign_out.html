@@ -1,49 +1,40 @@
-{% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <!-- Required meta tags -->
     <meta http-equiv="Content-Type" content="text/html"; charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <!-- Static files -->
-    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
-		<!-- leaflet CSS -->
-  
-    <title>Good Weather | {% block title %}{% endblock title %}</title>
-
-
-
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+	<!-- leaflet CSS -->
+    <title>Good Weather | Sign Out</title>
   </head>
 
   <body class="body">
     <div class="wrapper">
       <header class="header">
-        <a class="logo" href="{% url 'home' day=7 %}">Good Weather</a>
+        <a class="logo" href="#">Good Weather</a>
         <!-- User block -->
         <div class="auth">
-          {% if user.is_authenticated %}
-            <h4><span>Hello, {{ user.username }}! </span></h4>
-            <div class="authorised">
-              <h4><a href="{% url 'history' %}">Browse history</a></h4>
-              <h4><a href="{% url 'account_logout' %}">Log out</a></h4>
-            </div>
-          {% else %}
-            <h4>
-              <a class="sign-up-link" href="{% url 'account_signup' %}">Sign up</a>
-              <a class="log-in-link" href="{% url 'account_login' %}">Log in</a>
-            </h4>
-          {% endif %}
+          <h4><span>Hello, User!</span></h4>
+          <div class="authorised">
+            <h4><a href="#">Browse history</a></h4>
+            <h4><a href="#">Log out</a></h4>
+          </div>
         </div>	
       </header>
 
       <div class="page">
         <div class="container">
-          {% block content %}
-          {% endblock content %}
+          <div class="sign-form text-center">
+            <h1>Sign Out</h1>
+            <p>Are you sure you want to sign out?</p>
+            <form method="post" action="#">
+              <button class="btn btn-primary" type="submit">Sign Out</button>
+            </form>
+          </div>
         </div>
       </div>
 
