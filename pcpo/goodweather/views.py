@@ -20,5 +20,5 @@ class HistoryListView(ListView):
     template_name = 'goodweather/history.html'
 
     def get_queryset(self):
-        queryset = super().get_queryset()
+        queryset = super().get_queryset().order_by('date_millisecs')
         return queryset
