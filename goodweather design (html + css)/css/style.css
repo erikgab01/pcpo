@@ -117,3 +117,30 @@ caption {
   display: flex;
   justify-content: space-between;
 }
+
+/* Welcome.html */
+
+.table-link {
+  display: flex;
+  justify-content: center;
+}
+
+.welcome-heading {
+  margin-bottom: 30px;
+}
+
+.change-days-welcome:not(:first-child) {
+  margin-left: 40px;
+}
+
+.my-alert-info {
+  background-color: white;
+}
+
+.my-alert-info h4 {
+  font-size: 30px;
+}
+
+.my-alert-info p {
+  font-size: 18px;
+}
