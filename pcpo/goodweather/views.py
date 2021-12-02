@@ -22,3 +22,7 @@ class HistoryListView(ListView):
     def get_queryset(self):
         queryset = super().get_queryset().order_by('date_millisecs')
         return queryset
+
+
+def welcome(request):
+    return render(request, 'goodweather/welcome.html')

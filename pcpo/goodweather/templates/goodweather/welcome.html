@@ -1,0 +1,21 @@
+{% extends 'layout/basic.html' %}
+
+{% block title %}Home page{% endblock title %}
+
+{% block content %}
+  <h2 class="text-center display-4 welcome-heading">Welcome to Good Weather website</h2>
+  <div class="alert alert-info my-alert-info" role="alert">
+      <h4 class="alert-heading">Погода для прогулки</h4>
+      <p>Давно задаетесь вопросом в какой же день пойти погулять?</p>
+      <p>Или может вы давно хотите приехать в Уфу, но не знаете на какие дни запланировать свое путешествие?</p>
+      <p>Good Weather уже готов помочь вам, просто выберите необходимое для вас количество ближайших благоприятных дней, а мы расскажем вам, на какие даты они приходятся</p>
+      <p>Для достоверности мы так же покажем основную температурную и другую погодную информацию</p>
+      <hr>
+      <p class="mb-0">Спасибо что доверяете нам, мы ценим каждого нашего пользователя!</p>
+  </div>
+  <div class="table-link">
+    <a class="btn btn-outline-primary btn-lg change-days-welcome" href="/home/1/">1 day</a>
+    <a class="btn btn-outline-primary btn-lg change-days-welcome" href="/home/3/">3 days</a>
+    <a class="btn btn-outline-primary btn-lg change-days-welcome" href="/home/7/">All days</a>
+  </div>
+{% endblock content %}
